@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<main role="main" class="container">
+<div class="row m-0 p-0">
+  <div class="col-md-8">
+ <!-- s -->
+      {% for i in object_list %}
+                    <div class="card my-2">
+            <h5 class="card-header bg-dark text-white">Post {{ forloop.revcounter }}.</h5>
+            <img class=" img-fluid blogimg" src="/media/{{ i.image }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ i.title }}</h5>
+              <p class="card-text">{{ i.message|slice:':100'}}.</p>
+              <a href="/detail/{{ i.slug }}" class="btn btn-warning">Read more.</a>
+            </div>
+          </div>
+{% endfor %}
+<div >
+{% if is_paginated %}
+  <ul class="pagination justify-content-center text-warning">
+    {% if page_obj.has_previous %}
+      <li class="page-link " ><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="page-link  disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="page-link active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li class="page-link"><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li class="page-link"><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="page-link disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+</div>
+
+      </div>
+             <div class="col-md-4 mx-auto">
+                 <div class="card" style="width: 18rem;">
+                  <img src="/media/cardd.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  </div>
+                </div>
+            </div>
+</div>
+    </main>
+
+{% endblock %}

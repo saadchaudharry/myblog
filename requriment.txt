@@ -1,0 +1,16 @@
+beautifulsoup4==4.8.1
+certifi==2019.9.11
+chardet==3.0.4
+Click==7.0
+dataclasses==0.6
+Django==2.2.7
+django-crispy-forms==1.8.0
+pypiwin32==223
+python-dateutil==2.8.1
+pytz==2019.3
+pywin32==227
+soupsieve==1.9.5
+sqlparse==0.2.4
+urllib3==1.25.7
+uuid==1.30
+

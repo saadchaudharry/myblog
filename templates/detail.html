@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="row m-0 px-2 my-1">
+<div class="card  mx-auto text-white bg-dark ">
+  <img src="/media/{{ object.image }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h3 class="card-title text-warning ">{{ object.title }}</h3>
+    <p class="card-text">{{ object.message }}.</p>
+    <p class="card-text"><small class="text-muted">{{ object.timestamp }}</small></p>
+  </div>
+</div>
+</div>
+
+
+{% endblock %}
